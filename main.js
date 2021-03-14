@@ -22,13 +22,13 @@ hearts.forEach(heart => heart.addEventListener("click", likeServerCallback))
 
 function likeServerCallback(event) {
   let heart = event.target;
-  mimicServerCall("is this necessary?")
+  mimicServerCall("message")
     .then(function(serverMessage) {
       heart.innerText = heartStates[heart.innerText];
       heart.style.color = colorStates[heart.style.color];
     })
     .catch(function(error) {
-      modal.innerText = "Server Error!! Uh-Oh!!"
+      modal.innerText = "Server Error"
       modal.className = "";
       setTimeout(function() {modal.classList.add("hidden");}, 5000)
     })
